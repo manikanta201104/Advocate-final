@@ -2,10 +2,11 @@
   "name": "kvm-advocate-backend",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "module",
+ "type": "module",
+
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "test": "jest --detectOpenHandles"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -16,5 +17,12 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.17.0",
     "multer": "^2.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
+    "babel-jest": "^30.0.5",
+    "jest": "^30.0.5",
+    "supertest": "^7.1.4"
   }
 }

@@ -1,3 +1,4 @@
+// app.js
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
@@ -7,6 +8,10 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
+
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log('MongoDB connected'))
+  .catch(err => console.error('MongoDB connection error:', err));
 
 app.get('/api/test', (req, res) => {
   res.json({ message: 'Server running' });
@@ -22,23 +27,4 @@ app.post('/api/test-user', async (req, res) => {
   }
 });
 
-const startServer = async () => {
-  try {
-    await mongoose.connect(process.env.MONGO_URI);
-    console.log('MongoDB connected');
-
-    const PORT = process.env.PORT || 5000;
-    app.listen(PORT, () => {
-      console.log(`Server listening on port ${PORT}`);
-    });
-  } catch (err) {
-    console.error('MongoDB connection error:', err);
-  }
-};
-
-// Start only if not in test environment
-if (process.env.NODE_ENV !== 'test') {
-  startServer();
-}
-
-export { app, startServer };
+export default app;

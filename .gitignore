@@ -1,0 +1,4 @@
+node_modules/
+.env
+kvm-advocate-frontend/build/
+*.log
