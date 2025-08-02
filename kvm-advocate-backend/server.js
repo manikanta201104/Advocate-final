@@ -5,6 +5,7 @@ import cors from 'cors';
 import User from './models/User.js';
 import casesRouter from './routes/cases.js';
 import appointmentsRouter from './routes/appointments.js';
+import lawyersRouter from './routes/lawyers.js';
 
 dotenv.config();
 
@@ -29,6 +30,7 @@ app.post('/api/test-user', async (req, res) => {
 
 app.use('/api/cases', casesRouter);
 app.use('/api/appointments', appointmentsRouter);
+app.use('/api/lawyers', lawyersRouter);
 
 const startServer = async () => {
   try {

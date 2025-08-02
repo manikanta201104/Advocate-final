@@ -45,7 +45,7 @@ router.post(
         return res.status(400).json({ errors: [{ msg: 'Time slot outside working hours' }] });
       }
 
-      const isAvailable = lawyer.availableSlots.includes(time);
+      const isAvailable = lawyer.availableSlots.includes(time.toString());
       if (!isAvailable) {
         return res.status(400).json({ errors: [{ msg: 'Time slot unavailable' }] });
       }
@@ -63,7 +63,7 @@ router.post(
       await appointment.save();
 
       // Remove booked slot
-      lawyer.availableSlots = lawyer.availableSlots.filter((slot) => slot !== time);
+      lawyer.availableSlots = lawyer.availableSlots.filter((slot) => slot !== time.toString());
       await lawyer.save();
 
       // Send email confirmation
