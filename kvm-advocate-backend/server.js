@@ -1,15 +1,17 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import cors from 'cors';
 import User from './models/User.js';
 import casesRouter from './routes/cases.js';
 
 dotenv.config();
 
 const app = express();
+app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(express.json());
 
-// Existing test routes
+// Routes
 app.get('/api/test', (req, res) => {
   res.json({ message: 'Server running' });
 });
@@ -24,7 +26,6 @@ app.post('/api/test-user', async (req, res) => {
   }
 });
 
-// New cases route
 app.use('/api/cases', casesRouter);
 
 const startServer = async () => {
