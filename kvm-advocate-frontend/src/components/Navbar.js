@@ -11,6 +11,7 @@ function Navbar() {
           <NavLink to="/appointment-booking" className={({ isActive }) => `text-lg ${isActive ? 'text-blue-300 underline' : 'text-white hover:text-blue-300'}`}>Appointment Booking</NavLink>
           <NavLink to="/about-us" className={({ isActive }) => `text-lg ${isActive ? 'text-blue-300 underline' : 'text-white hover:text-blue-300'}`}>About Us</NavLink>
           <NavLink to="/services" className={({ isActive }) => `text-lg ${isActive ? 'text-blue-300 underline' : 'text-white hover:text-blue-300'}`}>Services</NavLink>
+          <NavLink to="/auth" className={({ isActive }) => `text-lg ${isActive ? 'text-blue-300 underline' : 'text-white hover:text-blue-300'}`}>Auth</NavLink>
         </div>
         <div className="md:hidden">
           <button className="text-white text-2xl">☰</button>

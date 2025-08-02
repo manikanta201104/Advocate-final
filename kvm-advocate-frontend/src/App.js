@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import CaseSubmission from './components/CaseSubmission';
 import AppointmentBooking from './components/AppointmentBooking';
+import Auth from './components/Auth';
 import './index.css';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/case-submission" element={<CaseSubmission />} />
           <Route path="/appointment-booking" element={<AppointmentBooking />} />
+          <Route path="/auth" element={<Auth />} />
           <Route path="*" element={<div className="text-2xl text-red-600 text-center mt-8"><h1>Page Not Found</h1></div>} />
         </Routes>
       </div>
