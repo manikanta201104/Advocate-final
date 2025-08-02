@@ -14,6 +14,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/case-submission" element={<CaseSubmission />} />
           <Route path="/appointment-booking" element={<AppointmentBooking />} />
+          <Route path="/success-stories" element={<div><h1 className="text-2xl font-bold">Success Stories Page</h1></div>} />
         </Routes>
       </div>
     </BrowserRouter>
