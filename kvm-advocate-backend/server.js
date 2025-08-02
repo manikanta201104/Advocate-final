@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import User from './models/User.js';
 import casesRouter from './routes/cases.js';
+import appointmentsRouter from './routes/appointments.js';
 
 dotenv.config();
 
@@ -27,6 +28,7 @@ app.post('/api/test-user', async (req, res) => {
 });
 
 app.use('/api/cases', casesRouter);
+app.use('/api/appointments', appointmentsRouter);
 
 const startServer = async () => {
   try {
@@ -42,7 +44,6 @@ const startServer = async () => {
   }
 };
 
-// Start only if not in test environment
 if (process.env.NODE_ENV !== 'test') {
   startServer();
 }
