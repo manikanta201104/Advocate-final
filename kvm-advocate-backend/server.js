@@ -2,12 +2,14 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import User from './models/User.js';
+import casesRouter from './routes/cases.js';
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
 
+// Existing test routes
 app.get('/api/test', (req, res) => {
   res.json({ message: 'Server running' });
 });
@@ -21,6 +23,9 @@ app.post('/api/test-user', async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+
+// New cases route
+app.use('/api/cases', casesRouter);
 
 const startServer = async () => {
   try {
